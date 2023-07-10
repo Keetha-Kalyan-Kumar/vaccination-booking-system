@@ -1,13 +1,9 @@
 package com.example.vaccinationbookingsystem.Model;
 
-
 import com.example.vaccinationbookingsystem.Enum.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -15,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Person {
+public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +26,4 @@ public class Person {
 
     @Enumerated(EnumType.STRING)
     Gender gender;
-
-    boolean isDose1Taken;
-
-    boolean isDose2Taken;
-
-//    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
-//    List<Dose> dosesTaken = new ArrayList<>();
-//
-//    @OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
-//    Certificate certificate;
 }

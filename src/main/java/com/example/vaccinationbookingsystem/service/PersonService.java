@@ -13,6 +13,8 @@ public class PersonService {
 
     public Person addPerson(Person person) {
 
+        person.setDose1Taken(false);
+        person.setDose2Taken(false);
         Person savedPerson = personRepository.save(person);
         return savedPerson;
     }
