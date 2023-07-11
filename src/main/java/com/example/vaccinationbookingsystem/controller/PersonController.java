@@ -1,6 +1,8 @@
 package com.example.vaccinationbookingsystem.controller;
 
 import com.example.vaccinationbookingsystem.Model.Person;
+import com.example.vaccinationbookingsystem.dto.RequestDto.AddPersonRequestDto;
+import com.example.vaccinationbookingsystem.dto.ResponseDto.AddPersonResponseDto;
 import com.example.vaccinationbookingsystem.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +20,9 @@ public class PersonController {
     PersonService personService;
 
     @PostMapping("/add")
-    public ResponseEntity addPerson(@RequestBody Person person){
+    public ResponseEntity addPerson(@RequestBody AddPersonRequestDto addPersonRequestDto){
         try{
-            Person personResponse = personService.addPerson(person);
+            AddPersonResponseDto personResponse = personService.addPerson(addPersonRequestDto);
             return new ResponseEntity(personResponse, HttpStatus.CREATED);
         }
         catch (Exception e){
